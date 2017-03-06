@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+    <head>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<title>解析未簽到退申請單</title>
+    </head>
+    <body>
+	<div class="container">
+	    <div class="form-group">
+		<textarea rows="15" cols="80" autocomplete="off" id="beforeText" wrap="logical" spellcheck="false"></textarea>
+		<button type="button" class="btn btn-info" onclick=convertText()>轉換</button>
+		<textarea rows="15" cols="80" autocomplete="off" id="convertedText" wrap="logical" spellcheck="false"></textarea>
+	    </div>
+	</div>
+	<script type="text/javascript">
+	    function convertText() {
+		var beforeText = $('#beforeText').val();
+		var convertedText = beforeText.replace(/未簽到退申請單	申請人：/g, '');
+		var convertedText = convertedText.replace(/未簽到退時段：/g, '');
+		var convertedText = convertedText.replace(/申請事由：\[系統異常\]/g, '');
+		var convertedText = convertedText.replace(/(?:\r\n|\r|\n)/g, '\t');
+		var convertedText = convertedText.replace(/資訊中心承辦人	吳家豪				/g, '\n');
+		$('#convertedText').val(convertedText);
+	    }
+	</script>
+    </body>
+</html>
+
