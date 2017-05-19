@@ -21,7 +21,7 @@
 		var convertedText = convertedText.replace(/未簽到退時段：/g, '');
 		var convertedText = convertedText.replace(/申請事由：\[系統異常\]/g, '');
 		var convertedText = convertedText.replace(/(?:\r\n|\r|\n)/g, '\t');
-		var convertedText = convertedText.replace(/資訊中心承辦人	吳家豪				/g, '\n');
+		var convertedText = convertedText.replace(/資訊中心承辦人\t吳家豪\t\t\t\t\t/g, '\n');
 		$('#convertedText').val(convertedText);
 	    }
 	</script>
